@@ -13,6 +13,16 @@ GreenMove is a sustainability tracking platform that helps users monitor their c
 - Interactive map showing locations of eco-friendly activities
 - Light/dark theme support
 
+## Recent Changes
+
+**October 31, 2025:**
+- Fixed critical type validation issues in activity logging form
+- Added `z.coerce.number()` for quantity field to properly convert string inputs to numbers
+- Added `z.coerce.date()` to insertActivitySchema for proper date handling from ISO strings
+- Successfully tested complete MVP with Playwright: all features working correctly
+- Verified activity logging, dashboard updates, rewards progression, eco-coach chatbot, analytics, map, and theme toggle
+- All features confirmed working without any paid API keys
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
