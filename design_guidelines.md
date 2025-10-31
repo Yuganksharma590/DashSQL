@@ -1,205 +1,251 @@
-# Design Guidelines: Designer Data Dashboard Tool
+# Design Guidelines: GreenMove Sustainability Ecosystem
 
 ## Design Approach
 
-**Reference-Based Approach**: Drawing inspiration from Linear (clean productivity UI), Notion (flexible components), and Observable (data visualization focus) to create a designer-friendly data tool that balances utility with visual sophistication.
+**Reference-Based Approach**: Drawing inspiration from eco-conscious apps like Oroeco, JouleBug, and modern sustainability platforms to create a vibrant, hopeful interface that motivates environmental action through beautiful design and gamification.
 
 **Key Principles**:
-1. **Designer-First Aesthetic**: Every element should feel polished and intentional
-2. **Information Clarity**: Complex data presented with visual hierarchy
-3. **Fluid Interaction**: Smooth transitions between querying and visualization
-4. **Professional Restraint**: Sophisticated without being distracting
+1. **Optimistic Sustainability**: Use vibrant greens and earth tones to inspire action, not guilt
+2. **Data-Driven Transparency**: Clear visualizations showing impact and progress
+3. **Gamified Engagement**: Rewards, achievements, and progress tracking feel rewarding
+4. **Accessible Information**: Complex environmental data made simple and beautiful
+
+---
+
+## Color Palette
+
+**Primary Colors** (Earth & Growth):
+- Forest Green: `142 70% 35%` - Primary actions, representing growth and nature
+- Leaf Green: `142 65% 45%` - Secondary actions, lighter nature touch
+- Sky Blue: `200 85% 48%` - Information, water, clean energy
+- Sunshine Yellow: `45 95% 60%` - Rewards, achievements, solar energy
+
+**Neutral Colors**:
+- Background Light: `140 15% 98%` - Main background with subtle green tint
+- Background Dark: `140 10% 8%` - Dark mode background
+- Card Light: `140 10% 96%` - Elevated surfaces
+- Card Dark: `140 8% 10%` - Dark mode cards
+
+**Semantic Colors**:
+- Success Green: `142 70% 45%` - Positive environmental impact
+- Warning Amber: `30 95% 55%` - Moderate impact/attention needed
+- Danger Red: `0 70% 50%` - High carbon footprint/negative impact
+- Info Blue: `200 85% 48%` - Educational content
 
 ---
 
 ## Typography
 
 **Font System**:
-- Primary: Inter (via Google Fonts) - for UI elements, labels, data tables
-- Accent: Space Grotesk (via Google Fonts) - for headings, dashboard titles
-- Monospace: JetBrains Mono - for SQL queries and technical content
+- Primary: Inter - Clean, modern readability for all UI elements
+- Heading: Space Grotesk - Bold, distinctive headings that command attention
+- Mono: JetBrains Mono - Data displays, carbon calculations
 
 **Hierarchy**:
-- Dashboard Titles: Space Grotesk, 32px (text-3xl), semibold (font-semibold)
-- Section Headers: Space Grotesk, 24px (text-2xl), medium (font-medium)
-- Chart Titles: Inter, 18px (text-lg), semibold
-- Body Text: Inter, 14px (text-sm), regular
-- Data Labels/Metrics: Inter, 12px (text-xs), medium
-- SQL Editor: JetBrains Mono, 14px (text-sm), regular
+- Hero Titles: Space Grotesk, 48px (text-5xl), bold - Dashboard titles
+- Section Headers: Space Grotesk, 32px (text-3xl), semibold - Major sections
+- Card Titles: Space Grotesk, 24px (text-2xl), medium - Widget headers
+- Body Text: Inter, 16px (text-base), regular - Main content
+- Data Values: Inter, 20-32px (text-xl to text-3xl), semibold - Metrics, carbon savings
+- Labels: Inter, 14px (text-sm), medium - Form labels, chart labels
+- Captions: Inter, 12px (text-xs), regular - Timestamps, metadata
 
 ---
 
 ## Layout System
 
-**Spacing Units**: Tailwind units of 1, 2, 4, 6, 8, 12, 16 for consistent rhythm
+**Spacing Units**: Use Tailwind's 4, 6, 8, 12, 16, 24 for eco-friendly breathing room
 
 **Grid Structure**:
-- App uses a sidebar + main content layout (not viewport-locked, scrollable content)
-- Sidebar: Fixed 280px width (w-70 equivalent)
-- Main Content: Fluid with max-w-7xl container
-- Dashboard Grid: 12-column responsive grid (grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4)
+- App uses sidebar navigation (280px) + main content area
+- Dashboard: Responsive grid (1 col mobile, 2 cols tablet, 3-4 cols desktop)
+- Cards have generous padding (p-6) to feel spacious and uncluttered
 
 **Component Spacing**:
-- Section padding: py-8 px-6 (desktop), py-6 px-4 (mobile)
-- Card spacing: gap-6 between cards
-- Widget padding: p-6 for dashboard widgets
+- Between major sections: mb-12 or space-y-12
+- Between cards in grid: gap-6
+- Inside cards: p-6
 - Form elements: space-y-4
 
 ---
 
 ## Component Library
 
-### Navigation & Layout
+### Navigation
 
 **Sidebar (Primary Navigation)**:
-- Persistent left sidebar with shadow-lg
-- Sections: Dashboard list, Saved Queries, Data Sources, Settings
-- Logo/Brand at top (h-16)
-- Active state: subtle accent with left border (border-l-4)
-- Icons from Heroicons (outline style)
-- Collapsible on mobile with hamburger menu
+- Fixed left sidebar with sustainability-themed icons
+- Sections:
+  - Dashboard (Home icon)
+  - Carbon Tracker (Leaf icon)
+  - Activities (Activity icon)
+  - Eco Coach (MessageCircle icon)
+  - Rewards (Trophy icon)
+  - Analytics (BarChart icon)
+  - Map (Map icon)
+- Active state: bg-sidebar-accent with left border accent (border-l-4 border-primary)
+- Logo area at top with leaf/plant icon
 
 **Top Bar**:
 - Height: h-16
-- Contains: Current dashboard title, breadcrumb navigation, action buttons (Save, Share, Export)
-- Right side: User profile, notifications icon
-- Subtle bottom border for separation
+- Left: Sidebar toggle, breadcrumbs
+- Right: User points/tokens display, notifications, profile
+- Sticky positioning with subtle shadow
 
-### Query Interface
+### Dashboard Widgets
 
-**Natural Language Input Box**:
-- Large, prominent text area (min-h-32)
-- Placeholder: "Ask a question about your data in plain English..."
-- Submit button: Primary CTA with icon (Heroicons arrow-right)
-- Positioned above SQL editor, takes visual priority
+**Carbon Footprint Card**:
+- Large, prominent card showing total CO2 saved
+- Circular progress indicator or large numerical display
+- Color-coded: Green for low/good, yellow for moderate, red for high
+- Comparison metrics (vs. last week, vs. average user)
 
-**SQL Query Editor**:
-- Syntax-highlighted code editor with line numbers
-- Toggle between "Natural Language" and "SQL" views
-- Action buttons: Run Query, Save, Clear
-- Results preview below with loading states
-- Use subtle rounded corners (rounded-lg)
+**Activity Cards**:
+- Icon + title (e.g., bike icon + "Biked 5 miles")
+- Carbon saved amount in green badge
+- Points earned in gold/yellow badge
+- Timestamp in muted text
+- Hover effect with subtle elevation
 
-### Dashboard Builder
+**Weather Widget**:
+- Current temperature and conditions with icon
+- 5-day forecast in horizontal scrollable row
+- Air quality index with color coding
+- Powered by Open-Meteo (subtle attribution)
 
-**Widget Canvas**:
-- Drag-and-drop grid layout
-- Empty state: Dashed border placeholder with "Add Widget" CTAs
-- Widget toolbar: Floating controls for edit/delete/resize
-- Snap-to-grid alignment for precision
+**Rewards Display**:
+- Total points/eco-tokens prominently displayed
+- Recent achievements with icons and animations
+- Progress bars toward next rewards
+- Leaderboard position (optional)
 
-**Widget Types** (Each as distinct card component):
+**Map Component**:
+- Full-width Leaflet map with OpenStreetMap tiles
+- Markers for eco-friendly locations (recycling centers, bike lanes, charging stations)
+- User's tracked activities shown as route polylines
+- Layer controls for different activity types
+- Legend with color-coded categories
 
-1. **Chart Widget**:
-   - Chart type selector: Bar, Line, Pie, Area (icon buttons)
-   - Chart area with responsive sizing
-   - Legend placement options
-   - Data label toggles
-   - Export to PNG/SVG option
+**Eco Coach Chat**:
+- Chat bubble interface with distinct user/bot styling
+- Bot messages in card with green accent border
+- User messages in secondary color
+- Suggested quick-reply buttons below bot messages
+- Input field with send button at bottom
+- Loading animation when bot is "thinking"
 
-2. **Metric/KPI Widget**:
-   - Large number display (text-4xl to text-6xl)
-   - Label underneath (text-sm)
-   - Optional trend indicator (up/down arrow with percentage)
-   - Compact, single-metric focus
+**Analytics Charts**:
+- Line chart: Carbon savings over time
+- Bar chart: Activity breakdown by type
+- Pie chart: Impact categories (transport, energy, waste, etc.)
+- Use earth tones for chart colors (greens, blues, browns)
+- Tooltips on hover with detailed breakdowns
+- Responsive: Stack vertically on mobile
 
-3. **Data Table Widget**:
-   - Sortable column headers
-   - Pagination controls
-   - Row hover states
-   - Fixed header on scroll for tall tables
-
-4. **Text/Notes Widget**:
-   - Rich text editing capability
-   - For annotations and insights
-   - Minimal borders, focus on content
-
-**Add Widget Modal**:
-- Grid of widget type cards (2 columns on mobile, 4 on desktop)
-- Each card: Icon, title, short description
-- Hover state with subtle elevation
-- Quick configuration form after selection
-
-### Data Management
-
-**Data Source Cards**:
-- Grid layout showing connected databases/CSV files
-- Card displays: Source name, connection status (dot indicator), row count
-- Actions: Edit, Disconnect, Refresh
-- "Add New Source" card with dashed border and plus icon
-
-**CSV Upload Zone**:
-- Large dropzone with dashed border (border-dashed)
-- Drag-and-drop with file icon
-- Alternative: Click to browse button
-- Progress bar during upload
-- Preview table after successful upload
+**Climate Data Visualizations**:
+- Global temperature trends (NASA data)
+- CO2 concentration charts
+- Ice coverage maps
+- Data source attribution (NASA DEMO_KEY)
+- Educational tooltips explaining the data
 
 ### Forms & Inputs
 
-**Input Fields**:
-- Height: h-10 for standard inputs
-- Border: 1px with rounded-md
-- Focus state: ring with offset
-- Labels: text-sm, font-medium, mb-2
+**Activity Logger Form**:
+- Activity type dropdown (Transport, Energy, Waste, Water, etc.)
+- Specific action dropdown (e.g., for Transport: Bike, Walk, Public Transit, Carpool)
+- Quantity input (miles, kWh, gallons, etc.) with unit selector
+- Date/time picker
+- Location input (optional, for map integration)
+- Notes text area
+- Submit button: Large, green, prominent "Log Activity"
+
+**Input Styling**:
+- Height: h-10 for all text inputs
+- Border: 1px with focus ring in primary green
+- Labels: text-sm font-medium mb-2
+- Helper text below inputs in muted color
 
 **Buttons**:
-- Primary CTA: Prominent, medium size (px-6 py-2.5)
-- Secondary: Outlined variant
-- Icon buttons: w-10 h-10, rounded-md
-- Disabled state: reduced opacity (opacity-50)
-
-**Dropdowns/Select Menus**:
-- Custom styled with Heroicons chevron-down
-- Options with hover states
-- Multi-select with checkboxes where applicable
+- Primary (green): For main actions (Log Activity, Save, Confirm)
+- Secondary (outline): For cancel/back actions
+- Icon buttons: For maps, filters, menu toggles
+- Success state: Brief checkmark animation
 
 ### Feedback Elements
 
 **Empty States**:
-- Centered icon (w-16 h-16, Heroicons outline)
-- Heading: "No dashboards yet"
-- Description: Helpful next step
-- Primary CTA button
+- Large leaf/plant illustration (can use Lucide icon styled large)
+- Heading: "Start Your Green Journey"
+- Description: Encouraging message about taking first steps
+- Primary CTA: "Log Your First Activity"
 
 **Loading States**:
-- Skeleton loaders for data tables and charts
-- Spinner for query execution
-- Progress bars for uploads
+- Skeleton loaders for cards and charts
+- Spinner for data fetching (green animated circle)
+- Progress bars for calculations
 
-**Toasts/Notifications**:
-- Top-right positioned (fixed, top-4, right-4)
-- Icon + message + dismiss button
-- Auto-dismiss after 5 seconds
-- Success, error, info variants
+**Success Toasts**:
+- Green background with checkmark icon
+- Messages: "Activity logged! +15 points earned"
+- Auto-dismiss after 4 seconds
+
+**Achievement Unlocks**:
+- Modal or full-screen celebration animation
+- Trophy/badge icon
+- Achievement name and description
+- Points earned
+- Share button (optional)
 
 ---
 
 ## Animations
 
-**Minimal, Purposeful Motion**:
-- Sidebar collapse: 200ms ease
-- Widget drag-and-drop: Smooth transform
-- Chart data transitions: 300ms ease when updating
-- Modal fade-in: 150ms
-- Hover elevations: Subtle 2px translate-y
-- **No scroll-triggered animations**
+**Purposeful, Eco-Themed Motion**:
+- Card hover: Subtle lift (translate-y-1) with shadow increase
+- Points counter: Count-up animation when new points earned
+- Achievement unlock: Scale + fade in with confetti effect
+- Chart data: Smooth transitions when data updates (300ms ease)
+- Progress bars: Animated fill from 0 to target value
+- Activity cards: Fade in as they're added to list
+- No heavy animations - keep it smooth and performant
 
 ---
 
-## Images
+## Icons
 
-**No hero images required** - This is a productivity tool, not a marketing page. Focus remains on functional interface elements.
+**Lucide React Icons**:
+- Home, Leaf, Activity, MessageCircle, Trophy, BarChart, Map for navigation
+- Bike, Car, Bus, Zap (energy), Droplet (water), Trash (waste) for activity types
+- TrendingUp/Down for analytics
+- Award, Star for achievements
+- MapPin for locations
+- Cloud, Sun, CloudRain for weather
 
-**Icons Only**: Heroicons library via CDN for all interface icons (data, chart, table, user, settings, etc.)
+**Sustainability Icons**:
+- Use Leaf as primary brand icon
+- Recycle symbol for waste activities
+- Sprout for growth/progress
+- Tree for carbon offset
 
 ---
 
 ## Accessibility
 
-- ARIA labels on all interactive elements
-- Keyboard navigation for dashboard widgets (tab, arrow keys)
-- Focus indicators on all focusable elements (ring with offset)
-- Sufficient contrast ratios for text on all backgrounds
+- All interactive elements have focus states with visible rings
+- Color is never the only indicator (use icons + text)
+- Sufficient contrast ratios (WCAG AA minimum)
+- ARIA labels on icon buttons
+- Keyboard navigation throughout
+- Screen reader friendly chart descriptions
 - Form validation with clear error messages
-- Screen reader announcements for dynamic content updates
+
+---
+
+## Dark Mode
+
+- Full dark mode support with earthy dark backgrounds
+- Dark mode still uses green accents (slightly brighter for contrast)
+- Charts use lighter colors in dark mode for visibility
+- Maps use dark-themed OpenStreetMap tiles in dark mode
+- All text maintains proper contrast ratios
